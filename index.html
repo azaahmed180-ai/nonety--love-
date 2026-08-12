@@ -1,216 +1,485 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>رسالة من القلب ❤️</title>
+<title>إلى چنچونتي ❤️</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top, #801c55, #25001f 65%, #10000d);
+    color: white;
+}
 
-            background: linear-gradient(
-                135deg,
-                #1a001f,
-                #4b0b3f,
-                #8e1d56
-            );
+/* نجوم */
+.stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
 
-            overflow: hidden;
-        }
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: .7;
+    animation: twinkle 2s infinite alternate;
+}
 
-        /* القلوب في الخلفية */
-        .heart {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.25);
-            font-size: 30px;
-            animation: float 6s linear infinite;
-        }
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.4); }
+}
 
-        .heart:nth-child(1) {
-            left: 10%;
-            animation-delay: 0s;
-        }
+/* القلوب */
+.heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 25px;
+    animation: rise linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
 
-        .heart:nth-child(2) {
-            left: 30%;
-            animation-delay: 2s;
-        }
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(.7);
+        opacity: 0;
+    }
 
-        .heart:nth-child(3) {
-            left: 55%;
-            animation-delay: 1s;
-        }
+    15% {
+        opacity: .8;
+    }
 
-        .heart:nth-child(4) {
-            left: 80%;
-            animation-delay: 3s;
-        }
+    100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.4);
+        opacity: 0;
+    }
+}
 
-        @keyframes float {
-            0% {
-                bottom: -50px;
-                transform: rotate(0deg);
-            }
+/* الشاشة الأولى */
+.start-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    background: rgba(10, 0, 12, .35);
+    backdrop-filter: blur(8px);
+    transition: 1s;
+}
 
-            100% {
-                bottom: 110%;
-                transform: rotate(360deg);
-            }
-        }
+.start-box {
+    width: 90%;
+    max-width: 500px;
+    padding: 40px 25px;
+    border-radius: 30px;
 
-        /* صندوق الرسالة */
-        .card {
-            width: 90%;
-            max-width: 600px;
-            padding: 40px 30px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.25);
 
-            text-align: center;
+    box-shadow: 0 20px 70px rgba(0,0,0,.5);
 
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(15px);
+    animation: entrance 1.5s ease;
+}
 
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 25px;
+@keyframes entrance {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(.8);
+    }
 
-            box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.4);
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
-            color: white;
+.start-heart {
+    font-size: 70px;
+    animation: beat 1.2s infinite;
+}
 
-            animation: appear 1.5s ease;
-        }
+@keyframes beat {
+    0%,100% {
+        transform: scale(1);
+    }
 
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
+    50% {
+        transform: scale(1.25);
+    }
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
+h1 {
+    margin: 15px 0;
+    font-size: 38px;
+}
 
-        h1 {
-            font-size: 38px;
-            margin-bottom: 20px;
-        }
+.start-box p {
+    font-size: 18px;
+    color: #ffd9e9;
+    line-height: 1.8;
+}
 
-        .line {
-            width: 80px;
-            height: 4px;
-            background: #ff6fae;
-            margin: 0 auto 25px;
-            border-radius: 10px;
-        }
+/* الزر */
+button {
+    margin-top: 25px;
+    padding: 15px 35px;
 
-        p {
-            font-size: 21px;
-            line-height: 2;
-            color: #ffeaf3;
-        }
+    border: none;
+    border-radius: 50px;
 
-        .highlight {
-            color: #ff8fbd;
-            font-weight: bold;
-        }
+    background: linear-gradient(45deg, #ff397f, #ff76ad);
+    color: white;
 
-        .signature {
-            margin-top: 30px;
-            font-size: 18px;
-            color: #ffd1e3;
-        }
+    font-size: 18px;
+    font-weight: bold;
 
-        .big-heart {
-            font-size: 55px;
-            margin-bottom: 10px;
+    cursor: pointer;
 
-            animation: heartbeat 1.5s infinite;
-        }
+    box-shadow: 0 8px 30px rgba(255, 50, 120, .45);
 
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
+    transition: .3s;
+}
 
-            50% {
-                transform: scale(1.2);
-            }
-        }
+button:hover {
+    transform: scale(1.08);
+}
 
-        /* للموبايل */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 30px;
-            }
+/* الرسالة */
+.message {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            p {
-                font-size: 18px;
-            }
+    padding: 20px;
 
-            .card {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+    opacity: 0;
+    transform: scale(.8);
+
+    transition: 1.5s;
+
+    pointer-events: none;
+}
+
+.message.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card {
+    width: 95%;
+    max-width: 650px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.10);
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 20px 80px rgba(0,0,0,.5);
+}
+
+.card-heart {
+    font-size: 60px;
+    animation: beat 1.3s infinite;
+}
+
+.card h2 {
+    font-size: 34px;
+    margin: 15px 0 25px;
+}
+
+.text {
+    font-size: 20px;
+    line-height: 2.1;
+    color: #ffe7f1;
+}
+
+.highlight {
+    color: #ff8fbd;
+    font-weight: bold;
+}
+
+.signature {
+    margin-top: 30px;
+    color: #ffc4dc;
+    font-size: 18px;
+}
+
+/* موبايل */
+@media(max-width:600px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .card h2 {
+        font-size: 28px;
+    }
+
+    .text {
+        font-size: 18px;
+    }
+
+    .start-box {
+        padding: 35px 20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- قلوب متحركة -->
-    <div class="heart">♥</div>
-    <div class="heart">♥</div>
-    <div class="heart">♥</div>
-    <div class="heart">♥</div>
+<!-- النجوم -->
+<div class="stars" id="stars"></div>
 
-    <!-- الرسالة -->
-    <div class="card">
+<!-- الشاشة الأولى -->
+<div class="start-screen" id="startScreen">
 
-        <div class="big-heart">❤️</div>
+    <div class="start-box">
 
-        <h1>رسالة من القلب</h1>
+        <div class="start-heart">❤️</div>
 
-        <div class="line"></div>
+        <h1>إلى چنچونتي</h1>
 
         <p>
-            مش عارف أقولها إزاي...
-            بس وجودك في حياتي بقى له
-            <span class="highlight">معنى مختلف.</span>
-            <br><br>
-
-            بحب طريقتك، وضحكتك، وكلامك،
-            وبحب الراحة اللي بحسها وأنا بتكلم معاكي.
-            <br><br>
-
-            يمكن الكلام ده بسيط،
-            بس حقيقي جدًا...
+            في حاجة صغيرة عملتها مخصوص ليكي...
             <br>
-
-            <span class="highlight">
-                بحبك زي ما إنتِ، ومش محتاج منك تكوني أي حد غير نفسك. ❤️
-            </span>
+            بس لازم تضغطي هنا الأول ❤️
         </p>
 
+        <button onclick="openMessage()">
+            افتحي الرسالة ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- الرسالة -->
+<div class="message" id="message">
+
+    <div class="card">
+
+        <div class="card-heart">💗</div>
+
+        <h2>چنچونتي ❤️</h2>
+
+        <div class="text">
+
+            مش عارف أقولها إزاي...
+
+            <br>
+
+            بس من وقت ما عرفتك،
+            وجودك بقى له مكان مختلف عندي.
+
+            <br>
+
+            بحب كلامنا،
+            وضحكتك،
+            والهزار اللي بينا...
+
+            <br>
+
+            والأجمل إني بحس إني على طبيعتي
+            وأنا بتكلم معاكي.
+
+            <br><br>
+
+            <span class="highlight">
+                بحبك زي ما إنتِ...
+                ومش عايزك تتغيري عشان أي حد. ❤️
+            </span>
+
+        </div>
+
         <div class="signature">
-            من شخص شايفك مختلفة عن الكل ❤️
+            من شخص شايف چنچونتي مختلفة عن الكل ❤️
         </div>
 
     </div>
 
+</div>
+
+
+<script>
+
+/* إنشاء النجوم */
+const stars = document.getElementById("stars");
+
+for(let i = 0; i < 70; i++){
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    stars.appendChild(star);
+}
+
+
+/* قلوب متحركة */
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = ["❤️","💗","💕","💖","💘"];
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 500);
+
+
+/* الصوت الرومانسي */
+let audioContext;
+let melodyStarted = false;
+
+function startRomanticSound(){
+
+    if(melodyStarted) return;
+
+    melodyStarted = true;
+
+    audioContext =
+        new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+    const notes = [
+        261.63,
+        329.63,
+        392.00,
+        329.63,
+        293.66,
+        349.23,
+        440.00,
+        349.23
+    ];
+
+    let index = 0;
+
+    function playNote(){
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value =
+            notes[index];
+
+        gain.gain.setValueAtTime(
+            0.0001,
+            audioContext.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.06,
+            audioContext.currentTime + 0.15
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            audioContext.currentTime + 1.5
+        );
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        oscillator.start();
+
+        oscillator.stop(
+            audioContext.currentTime + 1.6
+        );
+
+        index++;
+
+        if(index >= notes.length){
+            index = 0;
+        }
+    }
+
+    playNote();
+
+    setInterval(playNote, 1600);
+}
+
+
+/* فتح الرسالة */
+function openMessage(){
+
+    const startScreen =
+        document.getElementById("startScreen");
+
+    const message =
+        document.getElementById("message");
+
+    startRomanticSound();
+
+    startScreen.style.opacity = "0";
+
+    setTimeout(() => {
+
+        startScreen.style.display = "none";
+
+        message.classList.add("show");
+
+    }, 900);
+}
+
+</script>
+
 </body>
 </html>
-        
-        
