@@ -1,485 +1,189 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>إلى چنچونتي ❤️</title>
+  <title>لأبويا ❤️</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100vh;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background:
-        radial-gradient(circle at top, #801c55, #25001f 65%, #10000d);
-    color: white;
-}
-
-/* نجوم */
-.stars {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.star {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: white;
-    border-radius: 50%;
-    opacity: .7;
-    animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-    from { opacity: .2; transform: scale(.7); }
-    to { opacity: 1; transform: scale(1.4); }
-}
-
-/* القلوب */
-.heart {
-    position: fixed;
-    bottom: -50px;
-    font-size: 25px;
-    animation: rise linear forwards;
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes rise {
-    0% {
-        transform: translateY(0) rotate(0deg) scale(.7);
-        opacity: 0;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    15% {
-        opacity: .8;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
-    100% {
-        transform: translateY(-115vh) rotate(360deg) scale(1.4);
-        opacity: 0;
-    }
-}
+    /* الصفحة الأولى */
+    .page1 {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #111827, #374151);
 
-/* الشاشة الأولى */
-.start-screen {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 10;
-    background: rgba(10, 0, 12, .35);
-    backdrop-filter: blur(8px);
-    transition: 1s;
-}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
 
-.start-box {
-    width: 90%;
-    max-width: 500px;
-    padding: 40px 25px;
-    border-radius: 30px;
-
-    background: rgba(255,255,255,.10);
-    border: 1px solid rgba(255,255,255,.25);
-
-    box-shadow: 0 20px 70px rgba(0,0,0,.5);
-
-    animation: entrance 1.5s ease;
-}
-
-@keyframes entrance {
-    from {
-        opacity: 0;
-        transform: translateY(60px) scale(.8);
+      color: white;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.start-heart {
-    font-size: 70px;
-    animation: beat 1.2s infinite;
-}
-
-@keyframes beat {
-    0%,100% {
-        transform: scale(1);
+    .box {
+      padding: 35px;
     }
 
-    50% {
-        transform: scale(1.25);
+    .heart {
+      font-size: 70px;
+      animation: beat 1.2s infinite;
     }
-}
-
-h1 {
-    margin: 15px 0;
-    font-size: 38px;
-}
-
-.start-box p {
-    font-size: 18px;
-    color: #ffd9e9;
-    line-height: 1.8;
-}
-
-/* الزر */
-button {
-    margin-top: 25px;
-    padding: 15px 35px;
-
-    border: none;
-    border-radius: 50px;
-
-    background: linear-gradient(45deg, #ff397f, #ff76ad);
-    color: white;
-
-    font-size: 18px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow: 0 8px 30px rgba(255, 50, 120, .45);
-
-    transition: .3s;
-}
-
-button:hover {
-    transform: scale(1.08);
-}
-
-/* الرسالة */
-.message {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 20px;
-
-    opacity: 0;
-    transform: scale(.8);
-
-    transition: 1.5s;
-
-    pointer-events: none;
-}
-
-.message.show {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.card {
-    width: 95%;
-    max-width: 650px;
-
-    padding: 45px 30px;
-
-    text-align: center;
-
-    background: rgba(255,255,255,.10);
-
-    border: 1px solid rgba(255,255,255,.25);
-
-    border-radius: 30px;
-
-    backdrop-filter: blur(15px);
-
-    box-shadow: 0 20px 80px rgba(0,0,0,.5);
-}
-
-.card-heart {
-    font-size: 60px;
-    animation: beat 1.3s infinite;
-}
-
-.card h2 {
-    font-size: 34px;
-    margin: 15px 0 25px;
-}
-
-.text {
-    font-size: 20px;
-    line-height: 2.1;
-    color: #ffe7f1;
-}
-
-.highlight {
-    color: #ff8fbd;
-    font-weight: bold;
-}
-
-.signature {
-    margin-top: 30px;
-    color: #ffc4dc;
-    font-size: 18px;
-}
-
-/* موبايل */
-@media(max-width:600px) {
 
     h1 {
-        font-size: 30px;
+      font-size: 38px;
     }
 
-    .card h2 {
-        font-size: 28px;
+    button {
+      margin-top: 25px;
+      padding: 15px 35px;
+
+      border: none;
+      border-radius: 30px;
+
+      background: white;
+      color: #111827;
+
+      font-size: 20px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.3s;
     }
 
-    .text {
-        font-size: 18px;
+    button:hover {
+      transform: scale(1.08);
     }
 
-    .start-box {
-        padding: 35px 20px;
+    /* الصفحة الثانية */
+    .page2 {
+      display: none;
+
+      width: 100%;
+      height: 100vh;
+
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      color: white;
     }
-}
-</style>
+
+    .message {
+      animation: appear 2s ease;
+      padding: 25px;
+    }
+
+    .message .big-heart {
+      font-size: 90px;
+      animation: beat 1.2s infinite;
+    }
+
+    .message h2 {
+      font-size: 36px;
+      line-height: 1.7;
+    }
+
+    .message p {
+      font-size: 23px;
+      line-height: 2;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- النجوم -->
-<div class="stars" id="stars"></div>
+  <!-- الصفحة الأولى -->
+  <div class="page1" id="page1">
 
-<!-- الشاشة الأولى -->
-<div class="start-screen" id="startScreen">
+    <div class="box">
 
-    <div class="start-box">
+      <div class="heart">❤️</div>
 
-        <div class="start-heart">❤️</div>
+      <h1>لأبويا الغالي</h1>
 
-        <h1>إلى چنچونتي</h1>
+      <p>عندي حاجة عايز أقولهالك...</p>
 
-        <p>
-            في حاجة صغيرة عملتها مخصوص ليكي...
-            <br>
-            بس لازم تضغطي هنا الأول ❤️
-        </p>
-
-        <button onclick="openMessage()">
-            افتحي الرسالة ❤️
-        </button>
+      <button onclick="openPage()">
+        اضغط هنا ❤️
+      </button>
 
     </div>
 
-</div>
+  </div>
 
 
-<!-- الرسالة -->
-<div class="message" id="message">
+  <!-- الصفحة الثانية -->
+  <div class="page2" id="page2">
 
-    <div class="card">
+    <div class="message">
 
-        <div class="card-heart">💗</div>
+      <div class="big-heart">❤️</div>
 
-        <h2>چنچونتي ❤️</h2>
+      <h2>
+        بحبك يا أبويا ❤️
+      </h2>
 
-        <div class="text">
-
-            مش عارف أقولها إزاي...
-
-            <br>
-
-            بس من وقت ما عرفتك،
-            وجودك بقى له مكان مختلف عندي.
-
-            <br>
-
-            بحب كلامنا،
-            وضحكتك،
-            والهزار اللي بينا...
-
-            <br>
-
-            والأجمل إني بحس إني على طبيعتي
-            وأنا بتكلم معاكي.
-
-            <br><br>
-
-            <span class="highlight">
-                بحبك زي ما إنتِ...
-                ومش عايزك تتغيري عشان أي حد. ❤️
-            </span>
-
-        </div>
-
-        <div class="signature">
-            من شخص شايف چنچونتي مختلفة عن الكل ❤️
-        </div>
+      <p>
+        وربنا يخليك لينا دايمًا<br>
+        ويديك الصحة والعمر الطويل 🤲❤️
+      </p>
 
     </div>
 
-</div>
+  </div>
 
 
-<script>
+  <script>
 
-/* إنشاء النجوم */
-const stars = document.getElementById("stars");
+    function openPage() {
 
-for(let i = 0; i < 70; i++){
+      // إخفاء الصفحة الأولى
+      document.getElementById("page1").style.display = "none";
 
-    const star = document.createElement("div");
+      // إظهار الصفحة الثانية
+      document.getElementById("page2").style.display = "flex";
 
-    star.className = "star";
-
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-
-    star.style.animationDelay =
-        Math.random() * 3 + "s";
-
-    stars.appendChild(star);
-}
-
-
-/* قلوب متحركة */
-function createHeart(){
-
-    const heart = document.createElement("div");
-
-    heart.className = "heart";
-
-    const hearts = ["❤️","💗","💕","💖","💘"];
-
-    heart.innerHTML =
-        hearts[Math.floor(Math.random() * hearts.length)];
-
-    heart.style.left =
-        Math.random() * 100 + "vw";
-
-    heart.style.fontSize =
-        (15 + Math.random() * 25) + "px";
-
-    heart.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 10000);
-}
-
-setInterval(createHeart, 500);
-
-
-/* الصوت الرومانسي */
-let audioContext;
-let melodyStarted = false;
-
-function startRomanticSound(){
-
-    if(melodyStarted) return;
-
-    melodyStarted = true;
-
-    audioContext =
-        new (window.AudioContext ||
-        window.webkitAudioContext)();
-
-    const notes = [
-        261.63,
-        329.63,
-        392.00,
-        329.63,
-        293.66,
-        349.23,
-        440.00,
-        349.23
-    ];
-
-    let index = 0;
-
-    function playNote(){
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-        oscillator.type = "sine";
-
-        oscillator.frequency.value =
-            notes[index];
-
-        gain.gain.setValueAtTime(
-            0.0001,
-            audioContext.currentTime
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.06,
-            audioContext.currentTime + 0.15
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            0.0001,
-            audioContext.currentTime + 1.5
-        );
-
-        oscillator.connect(gain);
-        gain.connect(audioContext.destination);
-
-        oscillator.start();
-
-        oscillator.stop(
-            audioContext.currentTime + 1.6
-        );
-
-        index++;
-
-        if(index >= notes.length){
-            index = 0;
-        }
     }
 
-    playNote();
-
-    setInterval(playNote, 1600);
-}
-
-
-/* فتح الرسالة */
-function openMessage(){
-
-    const startScreen =
-        document.getElementById("startScreen");
-
-    const message =
-        document.getElementById("message");
-
-    startRomanticSound();
-
-    startScreen.style.opacity = "0";
-
-    setTimeout(() => {
-
-        startScreen.style.display = "none";
-
-        message.classList.add("show");
-
-    }, 900);
-}
-
-</script>
+  </script>
 
 </body>
+
 </html>
