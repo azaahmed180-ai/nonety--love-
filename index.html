@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>رسالة من القلب ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #1a001f,
+                #4b0b3f,
+                #8e1d56
+            );
+
+            overflow: hidden;
+        }
+
+        /* القلوب في الخلفية */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 30px;
+            animation: float 6s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 55%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(4) {
+            left: 80%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0% {
+                bottom: -50px;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                bottom: 110%;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* صندوق الرسالة */
+        .card {
+            width: 90%;
+            max-width: 600px;
+            padding: 40px 30px;
+
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.4);
+
+            color: white;
+
+            animation: appear 1.5s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .line {
+            width: 80px;
+            height: 4px;
+            background: #ff6fae;
+            margin: 0 auto 25px;
+            border-radius: 10px;
+        }
+
+        p {
+            font-size: 21px;
+            line-height: 2;
+            color: #ffeaf3;
+        }
+
+        .highlight {
+            color: #ff8fbd;
+            font-weight: bold;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #ffd1e3;
+        }
+
+        .big-heart {
+            font-size: 55px;
+            margin-bottom: 10px;
+
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* للموبايل */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- قلوب متحركة -->
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+    <div class="heart">♥</div>
+
+    <!-- الرسالة -->
+    <div class="card">
+
+        <div class="big-heart">❤️</div>
+
+        <h1>رسالة من القلب</h1>
+
+        <div class="line"></div>
+
+        <p>
+            مش عارف أقولها إزاي...
+            بس وجودك في حياتي بقى له
+            <span class="highlight">معنى مختلف.</span>
+            <br><br>
+
+            بحب طريقتك، وضحكتك، وكلامك،
+            وبحب الراحة اللي بحسها وأنا بتكلم معاكي.
+            <br><br>
+
+            يمكن الكلام ده بسيط،
+            بس حقيقي جدًا...
+            <br>
+
+            <span class="highlight">
+                بحبك زي ما إنتِ، ومش محتاج منك تكوني أي حد غير نفسك. ❤️
+            </span>
+        </p>
+
+        <div class="signature">
+            من شخص شايفك مختلفة عن الكل ❤️
+        </div>
+
+    </div>
+
+</body>
+</html>
+        
+        
